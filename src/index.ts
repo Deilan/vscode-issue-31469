@@ -2,19 +2,21 @@ syncFunc();
 asyncFunc();
 
 function syncFunc(): void {
-    const syncArg = "syncArg";
-    delay(syncArg, 2000)
-    .then((syncResult) => {
-    // tslint:disable-next-line:no-console
-        console.log(syncArg === syncResult);
+    const syncBeforeDelayArg = "syncBeforeDelayArg";
+    delay(syncBeforeDelayArg, 2000)
+    .then((syncDelayResult) => {
+        const syncAfterDelayArg = "syncAfterDelayArg";
+        // tslint:disable-next-line:no-console
+        console.log(syncBeforeDelayArg, syncDelayResult, syncAfterDelayArg);
     });
 }
 
 async function asyncFunc(): Promise<void> {
-    const asyncArg = "asyncArg";
-    const asyncResult = await delay(asyncArg, 3000);
+    const asyncBeforeDelayArg = "asyncBeforeDelayArg";
+    const asyncDelayResult = await delay(asyncBeforeDelayArg, 3000);
+    const asyncAfterDelayArg = "asyncAfterDelayArg";
     // tslint:disable-next-line:no-console
-    console.log(asyncArg === asyncResult);
+    console.log(asyncBeforeDelayArg, asyncDelayResult, asyncAfterDelayArg);
 }
 
 function delay(value: any, time: number): Promise<any> {
